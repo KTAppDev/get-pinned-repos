@@ -1,5 +1,5 @@
 {
-  "name": "@ktad/get-pinned-repos",
+  "name": "@kentaylorappdev/get-pinned-repos",
   "description": "Get the pinned repos for a github username",
   "author": "Ken Taylor",
   "version": "1.0.2",

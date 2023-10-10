@@ -5,13 +5,13 @@ Get the pinned repos for a github username.
 ## Installation
 
 ```bash
-npm install --save @ktad/get-pinned-repos
+npm install --save @kentaylorappdev/get-pinned-repos
 ```
 
 ## Usage
 
 ```javascript
-const ghPinnedRepos = require('@ktad/get-pinned-repos')
+const ghPinnedRepos = require('@kentaylorappdev/dget-pinned-repos')
 
 ghPinnedRepos('ktappdev')
   .then(console.log) // [...]
