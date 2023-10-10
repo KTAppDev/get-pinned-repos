@@ -1,5 +1,5 @@
 {
-  "name": "@ktad/gh-pinned-repos",
+  "name": "@ktad/get-pinned-repos",
   "description": "Get the pinned repos for a github username",
   "author": "Ken Taylor",
   "version": "1.0.2",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "ava"
   },
-  "repository": "KTAppDev/gh-pinned-repos",
+  "repository": "KTAppDev/get-pinned-repos",
   "keywords": [
     "github",
     "repos",
