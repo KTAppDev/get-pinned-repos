@@ -2,7 +2,7 @@
   "name": "@kentaylorappdev/get-pinned-repos",
   "description": "Get the pinned repos for a github username",
   "author": "Ken Taylor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "files": [
     "index.js"

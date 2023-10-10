@@ -11,7 +11,7 @@ npm install --save @kentaylorappdev/get-pinned-repos
 ## Usage
 
 ```javascript
-const ghPinnedRepos = require('@kentaylorappdev/dget-pinned-repos')
+const ghPinnedRepos = require('@kentaylorappdev/get-pinned-repos')
 
 ghPinnedRepos('ktappdev')
   .then(console.log) // [...]
