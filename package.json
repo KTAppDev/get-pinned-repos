@@ -1,0 +1,28 @@
+{
+  "name": "@ktad/gh-pinned-repos",
+  "description": "Get the pinned repos for a github username",
+  "author": "Ken Taylor",
+  "version": "1.0.2",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": "KTAppDev/gh-pinned-repos",
+  "keywords": [
+    "github",
+    "repos",
+    "pinned"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "got": "^6.3.0",
+    "is-blank": "^1.1.0"
+  },
+  "devDependencies": {
+    "ava": "*"
+  }
+}
