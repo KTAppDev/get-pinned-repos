@@ -1,5 +1,4 @@
-# gh-pinned-repos [![Build Status](https://secure.travis-ci.org/johnotander/gh-pinned-repos.svg?branch=master)](https://travis-ci.org/johnotander/gh-pinned-repos) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
+# get-pinned-repos 
 Get the pinned repos for a github username.
 
 ## Installation
