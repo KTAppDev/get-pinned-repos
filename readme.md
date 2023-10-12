@@ -1,5 +1,6 @@
 # get-pinned-repos 
 Get the pinned repos for a github username.
+No token required.
 
 ## Installation
 
@@ -13,8 +14,7 @@ npm install --save @kentaylorappdev/get-pinned-repos
 const ghPinnedRepos = require('@kentaylorappdev/get-pinned-repos')
 
 ghPinnedRepos('ktappdev')
-  .then(console.log) // [...]
-
+  .then(console.log)
 
 [ "KTAppDev/notes-app-frontend-public", "KTAppDev/tm-nextjs",
   "KTAppDev/notes-express-api-public", "KTAppDev/Switch-Power-profile",

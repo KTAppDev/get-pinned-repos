@@ -1,19 +1,31 @@
-'use strict'
+'use strict';
+const cheerio = require('cheerio'); // Import 'cheerio' for parsing HTML.
 
-const isBlank = require('is-blank')
-const got = require('got')
-const cheerio = require('cheerio')
-
-module.exports = function ghPinnedRepos(username) {
-  if (isBlank(username) || typeof username !== 'string') {
-    throw new TypeError('gh-pinned-repos expected a string')
-  }
-
-  return got(`https://github.com/${username}`)
-    .then(res => res.body)
-    .then(cheerio.load)
-    .then(cash => cash('.js-pinned-item-list-item.public'))
-    .then(repos => repos.map(getHref).get())
+// Custom username validation function
+function isValidUsername(username) {
+  // Replace this with your custom validation logic
+  return typeof username === 'string' && username.trim() !== '';
 }
 
-const getHref = (_, link) => cheerio.load(link)('a').attr('href').replace(/^\//, '')
+module.exports = async function getPinnedRepos(username) {
+  // Validate the input.
+  if (!isValidUsername(username)) {
+    throw new TypeError('get-pinned-repos expected a valid username');
+  }
+
+  // Fetch the user's GitHub page and parse it with Cheerio.
+  const response = await fetch(`https://github.com/${username}`);
+
+  // Check the response status code.
+  if (response.status !== 200) {
+    throw new Error(`Failed to fetch user's GitHub page: ${response.status}`);
+  }
+
+  // Parse the HTML response.
+  const $ = cheerio.load(await response.text());
+
+  // Select and extract href attributes of pinned repository links.
+  return $('.js-pinned-item-list-item.public')
+    .toArray()
+    .map((el) => $(el).find('a').attr('href').replace(/^\//, '')); // Remove leading '/' from href.
+};

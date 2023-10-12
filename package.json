@@ -2,7 +2,7 @@
   "name": "@kentaylorappdev/get-pinned-repos",
   "description": "Get the pinned repos for a github username",
   "author": "Ken Taylor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "files": [
     "index.js"
@@ -14,15 +14,11 @@
   "keywords": [
     "github",
     "repos",
-    "pinned"
+    "pinned",
+    "working"
   ],
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.20.0",
-    "got": "^6.3.0",
-    "is-blank": "^1.1.0"
-  },
-  "devDependencies": {
-    "ava": "*"
+    "cheerio": "^1.0.0-rc.12"
   }
 }
