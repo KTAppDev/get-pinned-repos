@@ -1,5 +1,6 @@
 'use strict';
-const cheerio = require('cheerio'); // Import 'cheerio' for parsing HTML.
+// const cheerio = require('cheerio'); // Import 'cheerio' for parsing HTML.
+import cheerio from 'cheerio';
 
 // Custom username validation function
 function isValidUsername(username) {
