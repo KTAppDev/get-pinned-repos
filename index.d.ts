@@ -4,8 +4,9 @@ declare module '@kentaylorappdev/get-pinned-repos' {
     repo: string;
     description: string;
     languages: string;
+    stars: number;
   };
-type RepoInfo_v1 = {
+  type RepoInfo_v1 = {
     repo: string;
   };
   type PinnedRepos_v2 = RepoInfo_v2[];
