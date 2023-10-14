@@ -53,27 +53,36 @@ export async function getPinnedRepos_v2(username) {
   // Select and extract href attributes of pinned repository links.
   const pinnedRepos = $('.js-pinned-item-list-item.public')
     .toArray()
-    .map((el) => $(el).find('a').attr('href').replace(/^\//, '')); // Remove leading '/' from href.
 
-  const lang = $('.js-pinned-item-list-item.public')
-    .toArray()
-    .map((el) => {
-      const desAndLang = $(el).find('p').toArray().map((el) => $(el).text().trim().split(',').map((el) => el.trim()))
-      return desAndLang[1].map(str => str.split('\n')[0])
-    })
+  // get the repo names
+  const repos = pinnedRepos.map((el) => $(el).find('a').attr('href').replace(/^\//, '')); // Remove leading '/' from href.
 
-  const desc = $('.js-pinned-item-list-item.public')
-    .toArray()
-    .map((el) => {
-      const desAndLang = $(el).find('p').toArray().map((el) => $(el).text().trim().split(',').map((el) => el.trim()))
-      return desAndLang[0]
-    })
+  // get the languages
+  const lang = pinnedRepos.map((el) => {
+    const lang = $(el).find('p').toArray().map((el) => $(el).text().trim().split(',').map((el) => el.trim()))
+    return lang[1].map(str => str.split('\n')[0])
+  })
 
-  // Return the pinned repos with their descriptions.
-  const pinnedReposWithDescAndLang = pinnedRepos.map((repo, i) => ({
+  // get the descriptions
+  const desc = pinnedRepos.map((el) => {
+    const desc = $(el).find('p').toArray().map((el) => $(el).text().trim().split(',').map((el) => el.trim()))
+    return desc[0]
+  })
+
+  // get the starts
+  const stars = pinnedRepos.map((el) => {
+    const starsElement = $(el).find('p').toArray().map((el) => $(el).text().split(',')[0].split(","))[1];
+    const starNumbers = parseInt(starsElement.map(str => str.match(/\d+/)))
+    return starNumbers ? starNumbers : 0
+  })
+
+
+  // Return the pinned repos with their details.
+  const pinnedReposWithDescAndLang = repos.map((repo, i) => ({
     repo,
     description: desc[i].toString(),
-    languages: lang[i].toString()
+    languages: lang[i].toString(),
+    stars: stars[i]
   }));
 
   // console.log(pinnedReposWithDescAndLang);
